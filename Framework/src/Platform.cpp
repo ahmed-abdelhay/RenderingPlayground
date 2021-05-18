@@ -93,7 +93,7 @@ bool WriteFile(const char* fileName, const uint8_t* data, size_t size)
     {
         defer(CloseHandle(handle));
         OVERLAPPED overlapped = {};
-        return WriteFileEx(handle, data, size - 1, &overlapped, NULL);
+        return WriteFileEx(handle, data, size, &overlapped, NULL);
     }
     return false;
 }
