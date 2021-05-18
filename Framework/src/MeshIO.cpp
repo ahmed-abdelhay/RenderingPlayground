@@ -83,10 +83,18 @@ bool WriteStl(const SurfaceMesh& mesh, const char* fileName)
         Normalise(n);
         assert(!(isnan(n.x) || isnan(n.y) || isnan(n.z)));
 
-        AppendData(n, data);
-        AppendData(v0, data);
-        AppendData(v1, data);
-        AppendData(v2, data);
+        AppendData<float>(n.x, data);
+        AppendData<float>(n.y, data);
+        AppendData<float>(n.z, data);
+        AppendData<float>(v0.x, data);
+        AppendData<float>(v0.y, data);
+        AppendData<float>(v0.z, data);
+        AppendData<float>(v1.x, data);
+        AppendData<float>(v1.y, data);
+        AppendData<float>(v1.z, data);
+        AppendData<float>(v2.x, data);
+        AppendData<float>(v2.y, data);
+        AppendData<float>(v2.z, data);
         AppendData(uint16_t(0), data);
     }
     return WriteFile(fileName, data.data(), data.size());
